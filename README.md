@@ -1,45 +1,71 @@
 # AccountaBot 🤖💰
 
-> Sistema de análise financeira inteligente com agentes de IA e integração de múltiplas fontes de dados
+> Sistema completo de análise financeira com IA - Backend Java + Frontend React moderno
 
 [![Java](https://img.shields.io/badge/Java-17+-orange.svg)](https://www.oracle.com/java/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.0+-green.svg)](https://spring.io/projects/spring-boot)
+[![React](https://img.shields.io/badge/React-18+-blue.svg)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-4.9+-blue.svg)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.3+-38B2AC.svg)](https://tailwindcss.com/)
 [![Maven](https://img.shields.io/badge/Maven-3.6+-blue.svg)](https://maven.apache.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## 📋 Sobre o Projeto
 
-O **AccountaBot** é um sistema avançado de análise financeira que utiliza inteligência artificial e arquitetura baseada em agentes para fornecer insights financeiros precisos e automatizados. O sistema integra múltiplas fontes de dados financeiros e oferece análises quantitativas sofisticadas.
+O **AccountaBot** é uma plataforma completa de análise financeira que combina:
+- **Backend Java/Spring Boot** com arquitetura de agentes inteligentes
+- **Frontend React moderno** com dashboard financeiro profissional
+- **Integração com APIs** de dados financeiros (Yahoo Finance, Alpha Vantage)
+- **Sistema de autenticação** e gerenciamento de portfólio
 
-### 🎯 Principais Funcionalidades
+🎯 **Status Atual**: Frontend funcional com dados demonstrativos + Backend com lógica de negócio (APIs REST em desenvolvimento)
 
+### 🎯 Funcionalidades Implementadas
+
+#### 🖥️ **Frontend React (Funcional)**
+- **🔐 Sistema de Autenticação**: Login com credenciais demonstrativas
+- **📊 Dashboard Financeiro**: Visão geral do mercado e portfólio
+- **📈 Página de Analytics**: Análises e relatórios detalhados
+- **🤖 Gerenciamento de Agentes**: Interface para controle de agentes IA
+- **💼 Portfolio**: Gestão de carteiras e posições
+- **⚙️ Configurações**: Personalização do usuário
+- **📱 Design Responsivo**: Interface moderna com Tailwind CSS
+
+#### ⚙️ **Backend Java (Lógica de Negócio)**
 - **🤖 Sistema de Agentes Inteligentes**: Arquitetura baseada em agentes com workflow automatizado
 - **📊 Múltiplas Fontes de Dados**: Integração com Yahoo Finance, Alpha Vantage e outras APIs
 - **📈 Análise Quantitativa**: Módulos especializados para análise técnica e fundamental
 - **⚡ Processamento Assíncrono**: Operações não-bloqueantes para alta performance
 - **📋 Gerenciamento de Cache**: Sistema inteligente de cache para otimização
 - **🔄 Rate Limiting**: Controle automático de limites de API
-- **📊 Métricas e Monitoramento**: Sistema completo de métricas e observabilidade
 
 ## 🏗️ Arquitetura
 
-### Componentes Principais
+### Estrutura do Projeto
 
 ```
 📦 AccountaBot
-├── 🤖 Agentes (Agents)
-│   ├── AgentLibrary - Biblioteca de agentes especializados
-│   ├── WorkflowManager - Gerenciamento de fluxos de trabalho
-│   ├── SmartScheduler - Agendamento inteligente de tarefas
-│   └── BaseAgent - Classe base para todos os agentes
-├── 📊 Fontes de Dados (DataSources)
-│   ├── AlphaVantageDataSource - Integração Alpha Vantage
-│   ├── YahooFinanceDataSource - Integração Yahoo Finance
-│   └── DataSourceManager - Gerenciador centralizado
-└── 🔧 Módulos Funcionais
-    ├── Analyzer - Análise de dados financeiros
-    ├── Charting - Geração de gráficos e visualizações
-    └── Quantitative - Análises quantitativas avançadas
+├── 🖥️ Frontend (React + TypeScript)
+│   ├── 📄 Páginas: Login, Dashboard, Analytics, Agents, Portfolio, Settings
+│   ├── 🧩 Componentes: Charts, Auth, Layout, UI
+│   ├── 🔧 Serviços: API, Autenticação
+│   ├── 🎨 Styling: Tailwind CSS
+│   └── 🛣️ Roteamento: React Router
+├── ⚙️ Backend (Java + Spring Boot)
+│   ├── 🤖 Agentes (Agents)
+│   │   ├── AgentLibrary - Biblioteca de agentes especializados
+│   │   ├── WorkflowManager - Gerenciamento de fluxos de trabalho
+│   │   ├── SmartScheduler - Agendamento inteligente de tarefas
+│   │   └── BaseAgent - Classe base para todos os agentes
+│   ├── 📊 Fontes de Dados (DataSources)
+│   │   ├── AlphaVantageDataSource - Integração Alpha Vantage
+│   │   ├── YahooFinanceDataSource - Integração Yahoo Finance
+│   │   └── DataSourceManager - Gerenciador centralizado
+│   └── 🔧 Módulos Funcionais
+│       ├── Analyzer - Análise de dados financeiros
+│       ├── Charting - Geração de gráficos e visualizações
+│       └── Quantitative - Análises quantitativas avançadas
+└── 🔗 Integração: APIs REST (em desenvolvimento)
 ```
 
 ### Tipos de Dados Suportados
@@ -54,9 +80,14 @@ O **AccountaBot** é um sistema avançado de análise financeira que utiliza int
 
 ### Pré-requisitos
 
+**Backend:**
 - **Java 17+**
 - **Maven 3.6+**
 - **Spring Boot 3.0+**
+
+**Frontend:**
+- **Node.js 16+**
+- **npm ou yarn**
 
 ### Clonando o Repositório
 
@@ -65,7 +96,31 @@ git clone https://github.com/Andre-Brito-py/AccountaBot.git
 cd AccountaBot
 ```
 
-### Configuração
+### 🖥️ Executando o Frontend
+
+1. **Navegue para o diretório do frontend**:
+```bash
+cd frontend
+```
+
+2. **Instale as dependências**:
+```bash
+npm install
+```
+
+3. **Execute o servidor de desenvolvimento**:
+```bash
+npm start
+```
+
+4. **Acesse a aplicação**:
+- Frontend: http://localhost:3000
+- **Credenciais para demonstração**:
+  - **Admin**: `admin@accountabot.com` / `admin123`
+  - **Usuário**: `user@accountabot.com` / `user123`
+  - **Demo**: `demo@demo.com` / `demo123`
+
+### ⚙️ Executando o Backend
 
 1. **Configure as chaves de API** no arquivo `src/main/resources/application.yml`:
 
@@ -79,26 +134,38 @@ finrobot:
 ```
 
 2. **Compile o projeto**:
-
 ```bash
 mvn clean compile
 ```
 
-3. **Execute os testes**:
-
-```bash
-mvn test
-```
-
-4. **Execute a aplicação**:
-
+3. **Execute a aplicação**:
 ```bash
 mvn spring-boot:run
 ```
 
+4. **Acesse os endpoints**:
+- API: http://localhost:8080/api
+- H2 Console: http://localhost:8080/api/h2-console
+- Health Check: http://localhost:8080/api/actuator/health
+
 ## 💡 Uso
 
-### Exemplo Básico
+### 🖥️ Interface Web (Frontend)
+
+1. **Acesse a aplicação**: http://localhost:3000
+2. **Faça login** com uma das credenciais demonstrativas:
+   - Admin: `admin@accountabot.com` / `admin123`
+   - User: `user@accountabot.com` / `user123`
+   - Demo: `demo@demo.com` / `demo123`
+
+3. **Navegue pelas funcionalidades**:
+   - **Dashboard**: Visão geral do mercado e métricas
+   - **Analytics**: Análises detalhadas e relatórios
+   - **Agents**: Gerenciamento de agentes IA
+   - **Portfolio**: Gestão de carteiras
+   - **Settings**: Configurações pessoais
+
+### ⚙️ API Backend (Em Desenvolvimento)
 
 ```java
 // Inicializar o sistema de agentes
@@ -114,7 +181,7 @@ Analyzer analyzer = new Analyzer(dataSourceManager);
 var resultado = analyzer.analisarAtivo("AAPL");
 ```
 
-### Configuração de Agentes
+### 🔧 Configuração de Agentes
 
 ```java
 // Criar agente personalizado
@@ -129,6 +196,15 @@ BaseAgent meuAgente = new BaseAgent() {
 // Registrar no sistema
 agentLibrary.registerAgent("meu-agente", meuAgente);
 ```
+
+### 📊 Dados Demonstrativos
+
+O frontend atualmente utiliza dados demonstrativos para:
+- **Índices de Mercado**: S&P 500, NASDAQ, Dow Jones
+- **Ações Populares**: AAPL, GOOGL, MSFT, TSLA, AMZN
+- **Análises Simuladas**: Relatórios técnicos e fundamentais
+- **Status de Agentes**: Estados simulados dos agentes IA
+- **Métricas de Portfolio**: Dados fictícios para demonstração
 
 ## 🔧 Configuração Avançada
 
@@ -168,14 +244,40 @@ O sistema inclui métricas detalhadas:
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abra um Pull Request
 
-## 📝 Roadmap
+## 🛣️ Roadmap
 
-- [ ] **Chain-of-Thought Prompting**: Implementação de raciocínio avançado
-- [ ] **Interface Web**: Dashboard para visualização de dados
-- [ ] **API REST**: Endpoints para integração externa
-- [ ] **Machine Learning**: Modelos preditivos integrados
-- [ ] **Alertas Inteligentes**: Sistema de notificações automáticas
-- [ ] **Backtesting**: Framework para teste de estratégias
+### ✅ **Concluído**
+- [x] ✅ Interface web React moderna e responsiva
+- [x] ✅ Sistema de autenticação frontend
+- [x] ✅ Dashboard financeiro interativo
+- [x] ✅ Componentes de visualização de dados
+- [x] ✅ Arquitetura de agentes backend
+- [x] ✅ Integração com fontes de dados financeiros
+
+### 🚧 **Em Desenvolvimento**
+- [ ] 🔄 API REST para integração frontend-backend
+- [ ] 🔄 Endpoints de autenticação e autorização
+- [ ] 🔄 Persistência de dados (banco de dados)
+
+### 📋 **Próximos Passos**
+- [ ] 📊 Gráficos interativos com dados reais
+- [ ] 🤖 Interface de configuração de agentes
+- [ ] 🔔 Sistema de alertas em tempo real
+- [ ] 📰 Análise de sentimento de notícias
+- [ ] 🏦 Integração com corretoras
+- [ ] 📱 Mobile app
+
+## 🎯 Status do Projeto
+
+| Componente | Status | Funcionalidade |
+|------------|--------|----------------|
+| 🖥️ **Frontend React** | ✅ **95% Funcional** | Interface completa, navegação, componentes |
+| 🔐 **Autenticação Frontend** | ✅ **100% Demo** | Login com credenciais demonstrativas |
+| 📊 **Dashboard** | ✅ **100% Visual** | Métricas e gráficos com dados mock |
+| ⚙️ **Backend Logic** | ✅ **70% Implementado** | Agentes, fontes de dados, análises |
+| 🔗 **APIs REST** | ⚠️ **Em Desenvolvimento** | Endpoints para integração |
+| 💾 **Persistência** | ⚠️ **Pendente** | Banco de dados e modelos |
+| 🧪 **Testes** | ⚠️ **Básicos** | Testes unitários limitados |
 
 ## 📄 Licença
 
@@ -195,5 +297,7 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 - Comunidade Java e Spring
 
 ---
+
+> 💡 **Dica**: Para uma experiência completa, execute tanto o frontend (porta 3000) quanto o backend (porta 8080) simultaneamente. O frontend está totalmente funcional para demonstrações, enquanto o backend fornece a lógica de negócio robusta.
 
 ⭐ **Se este projeto foi útil para você, considere dar uma estrela!** ⭐
