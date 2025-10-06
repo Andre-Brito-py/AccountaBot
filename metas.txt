@@ -1,0 +1,42 @@
+Metas de Curto e Médio Prazo
+
+1. Implementar controlador e endpoints de Portfolio no backend
+   - Rotas: /api/portfolio, /api/portfolio/{id}, /api/portfolio/positions
+   - Operações: listar, criar, atualizar, remover, obter posições
+
+2. Consolidar autenticação end-to-end
+   - Backend: endpoints de login/refresh, validação de tokens
+   - Frontend: fluxo de login integrado, armazenamento seguro de tokens
+
+3. Integrar dados financeiros em tempo real
+   - Conectar WebSocket/Stream para cotações ao vivo
+   - Atualizar gráficos (charts) em tempo real
+
+4. Criar suíte de testes automatizados
+   - Backend: testes de integração dos controllers e serviços
+   - Frontend: testes de componentes críticos e serviços (API)
+
+5. Observabilidade e monitoramento
+   - Adicionar métricas (Micrometer/Actuator) e dashboards
+   - Logs estruturados e tracing para agentes e análises
+
+6. Hardening e segurança
+   - Rate limiting por usuário/chave
+   - Validação e sanitização de entradas
+   - Revisão de CORS e políticas de headers
+
+7. Documentação técnica
+   - Especificar contratos de API (OpenAPI/Swagger)
+   - Guia de deploy (prod e staging)
+
+8. Deploy e CI/CD
+   - Pipeline de build/test/lint
+   - Deploy automatizado em ambiente de teste
+
+9. Performance e caching
+   - Revisão de consultas e otimizações
+   - Camada de cache distribuído (ex.: Redis)
+
+10. UX melhorias no dashboard
+   - Filtros, busca, e exportação de relatórios
+   - Acessibilidade e refinamentos visuais

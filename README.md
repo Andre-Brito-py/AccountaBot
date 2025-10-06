@@ -113,8 +113,8 @@ npm install
 npm start
 ```
 
-4. **Acesse a aplicação**:
 - Frontend: http://localhost:3000
+- Nota: Se a porta 3000 estiver ocupada, você pode iniciar em outra porta definindo `PORT`, por exemplo `PORT=3005 npm start` e acessar em `http://localhost:3005`.
 - **Credenciais para demonstração**:
   - **Admin**: `admin@accountabot.com` / `admin123`
   - **Usuário**: `user@accountabot.com` / `user123`
@@ -152,7 +152,7 @@ mvn spring-boot:run
 
 ### 🖥️ Interface Web (Frontend)
 
-1. **Acesse a aplicação**: http://localhost:3000
+1. **Acesse a aplicação**: http://localhost:3000 (ou a porta configurada via `PORT`, ex.: `http://localhost:3005`)
 2. **Faça login** com uma das credenciais demonstrativas:
    - Admin: `admin@accountabot.com` / `admin123`
    - User: `user@accountabot.com` / `user123`
@@ -207,6 +207,33 @@ O frontend atualmente utiliza dados demonstrativos para:
 - **Métricas de Portfolio**: Dados fictícios para demonstração
 
 ## 🔧 Configuração Avançada
+
+### Proxy e Base de API
+
+O frontend utiliza `axios` com base `"/api"` em ambiente de desenvolvimento, e o servidor de desenvolvimento do React faz proxy dessas rotas para o backend:
+
+- Arquivo: `frontend/src/setupProxy.js`
+- Comportamento: requisições para `"/api"` são encaminhadas para `http://localhost:8080/api`
+- `pathRewrite`: remove o prefixo `"/api"` antes de encaminhar, mantendo o `context-path` do backend
+
+Exemplo simplificado do proxy:
+
+```js
+app.use(
+  '/api',
+  createProxyMiddleware({
+    target: 'http://localhost:8080/api',
+    changeOrigin: true,
+    pathRewrite: { '^/api': '' }
+  })
+);
+```
+
+Requisitos para funcionar:
+- Backend escutando em `http://localhost:8080` com `context-path: /api`
+- Frontend acessando as APIs pelo caminho relativo `"/api"` (ex.: `GET /api/dashboard`)
+
+Alternativamente, se desejar rodar o backend em `8081`, ajuste o `target` no `setupProxy.js` para `http://localhost:8081/api`.
 
 ### Rate Limiting
 
@@ -301,3 +328,50 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 > 💡 **Dica**: Para uma experiência completa, execute tanto o frontend (porta 3000) quanto o backend (porta 8080) simultaneamente. O frontend está totalmente funcional para demonstrações, enquanto o backend fornece a lógica de negócio robusta.
 
 ⭐ **Se este projeto foi útil para você, considere dar uma estrela!** ⭐
+# AccountaBot
+
+Assistente de IA para escritórios de contabilidade (MVP). Integra frontend React com backend Spring Boot, proxy em `/api`, serviço OpenRouter para chat e controladores financeiros com Yahoo Finance.
+
+## Requisitos
+- Node.js 18+
+- Java 17+
+- Maven (ou Maven Wrapper)
+
+## Configuração
+1. Copie variáveis de ambiente:
+   - No backend: crie `.env` ou exporte no ambiente `OPENROUTER_API_KEY` e opcional `OPENROUTER_MODEL`.
+   - No frontend: copie `frontend/.env.example` para `frontend/.env` se quiser sobrescrever `REACT_APP_API_URL`.
+
+2. OpenRouter (backend):
+   - Configure `OPENROUTER_API_KEY`.
+   - O modelo pode ser ajustado via `OPENROUTER_MODEL`.
+
+3. Yahoo Finance:
+   - Já habilitado em `application.yml`. Endpoints: `/finance/price/{symbol}`, `/finance/historical/{symbol}`, `/finance/fundamental/{symbol}`.
+
+## Executando
+### Backend
+```bash
+mvn spring-boot:run
+# ou, se houver wrapper
+./mvnw spring-boot:run
+```
+Backend sobe em `http://localhost:8080/api`.
+
+### Frontend
+```bash
+cd frontend
+npm install
+npm start
+```
+Frontend sobe em `http://localhost:3000`. Proxy para `http://localhost:8080/api`.
+
+## Endpoints úteis
+- `GET /api/actuator/health`
+- `GET /api/ping`
+- `POST /api/assistant/chat` body: `{ "message": "texto" }`
+- `GET /api/finance/price/AAPL`
+
+## Notas
+- Scheduler está desativado por padrão (`finrobot.scheduler.enabled: false`).
+- Autenticação é mock no frontend; ajuste conforme necessário.
